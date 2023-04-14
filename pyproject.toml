@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "temp"
+version = "0.1.0"
+description = ""
+authors = ["Andrew Fiorillo <andrew.fiorillo@deliveryhero.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = { git = "https://github.com/pydantic/pydantic", tag = "v2.0a2" }
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
