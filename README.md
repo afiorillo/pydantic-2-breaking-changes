@@ -72,4 +72,46 @@ So if your system currently behaves by allowing numbers of arbitrary size (as Py
 
 ## Big Integers in Python, with Pydantic v1
 
-**TODO:** this is meant to be a control. I will do so in another branch...
+Running the same example with the v1 Pydantic has a different behavior.
+In particular, the number is not truncated.
+This is not really that surprising, since Pydantic 1 is all Python, but it is a breaking change and worth noticing.
+
+```bash
+$ python main.py 
+num=4294967295, <class 'int'>
+contained=IntContainer(x=4294967295)
+dumped='{"x": 4294967295}'
+extracted=4294967295, <class 'int'>
+same? True
+--------------------------------------------------------------------------------
+num=4294967297, <class 'int'>
+contained=IntContainer(x=4294967297)
+dumped='{"x": 4294967297}'
+extracted=4294967297, <class 'int'>
+same? True
+--------------------------------------------------------------------------------
+num=18446744073709551615, <class 'int'>
+contained=IntContainer(x=18446744073709551615)
+dumped='{"x": 18446744073709551615}'
+extracted=18446744073709551615, <class 'int'>
+same? True
+--------------------------------------------------------------------------------
+num=18446744073709551617, <class 'int'>
+contained=IntContainer(x=18446744073709551617)
+dumped='{"x": 18446744073709551617}'
+extracted=18446744073709551617, <class 'int'>
+same? True
+--------------------------------------------------------------------------------
+num=340282366920938463463374607431768211455, <class 'int'>
+contained=IntContainer(x=340282366920938463463374607431768211455)
+dumped='{"x": 340282366920938463463374607431768211455}'
+extracted=340282366920938463463374607431768211455, <class 'int'>
+same? True
+--------------------------------------------------------------------------------
+num=340282366920938463463374607431768211457, <class 'int'>
+contained=IntContainer(x=340282366920938463463374607431768211457)
+dumped='{"x": 340282366920938463463374607431768211457}'
+extracted=340282366920938463463374607431768211457, <class 'int'>
+same? True
+--------------------------------------------------------------------------------
+```
