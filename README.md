@@ -67,7 +67,7 @@ same? False
 --------------------------------------------------------------------------------
 ```
 
-As you can see, large integers get truncated to `9223372036854775807`.
+As you can see, large integers get truncated to `9223372036854775807` -- i.e. `2**63 - 1`, the `i64` max.
 So if your system currently behaves by allowing numbers of arbitrary size (as Python does by default), and you use Pydantic, then you can expect Pydantic v2 to introduce a new maximum integer size.
 
 ## Big Integers in Python, with Pydantic v1
