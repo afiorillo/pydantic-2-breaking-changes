@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-pydantic = { git = "https://github.com/pydantic/pydantic", tag = "v2.0a2" }
+pydantic = "^1.10.7"
 
 
 [build-system]
